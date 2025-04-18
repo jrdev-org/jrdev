@@ -3,6 +3,8 @@ import Link from "next/link";
 export default function ContactPage() {
 	return (
 		<>
+		<h1 className="mb-4 font-bold text-3xl">Contact Us</h1>
+		<hr className="my-6" />
 			<div className="grid grid-cols-1 gap-8 md:grid-cols-2">
 				<div className="space-y-4">
 					<h2 className="font-semibold text-xl">Send us a message</h2>
