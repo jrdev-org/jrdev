@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import Footer from "@/app/components/Footer";
 import type { Member, MemberLevel } from "@/app/interfaces/types";
 
 const getLevelColor = (level: MemberLevel): string => {
