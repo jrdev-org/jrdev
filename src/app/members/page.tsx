@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import type { Member, MemberLevel } from "@/app/interfaces/types";
 
@@ -22,27 +21,29 @@ export default function MembersPage() {
   const [hoveredMember, setHoveredMember] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [members, setMembers] = useState<Member[]>([]);
-//   const router = useRouter();
 
   useEffect(() => {
+    // Create a separate async function to fetch members
     const fetchMembers = async () => {
       try {
         const response = await fetch("/api/members");
         if (!response.ok) {
           throw new Error(
-            `Failed to fetch members: ${response.status} ${response.statusText}`,
+            `Failed to fetch members: ${response.status} ${response.statusText}`
           );
         }
-        const data: Member[] = await response.json();
+        const data = await response.json() as Member[];
         setMembers(data);
-        //@ts-ignore
-      } catch (error: any) {
-        console.error("Error fetching members:", error);
+      } catch (error: unknown) {
+        // Properly type the error
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        console.error("Error fetching members:", errorMessage);
         // Handle the error appropriately (e.g., display an error message)
       }
     };
 
-    fetchMembers();
+    // Properly handle the Promise by calling the function and not ignoring the result
+    void fetchMembers();
   }, []);
 
   const filteredMembers = members.filter((member) => {
@@ -82,10 +83,9 @@ export default function MembersPage() {
               </tr>
             </thead>
             <tbody>
-              {filteredMembers.map((member, index) => (
+              {filteredMembers.map((member) => (
                 <tr
                   key={member.id}
-                //   onClick={() => router.push(`/members/${member.id}`)}
                   className="cursor-pointer border-b border-edge transition-colors hover:bg-secondary"
                 >
                   <td className="p-4">{member.name}</td>
