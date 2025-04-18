@@ -57,7 +57,7 @@ export default function Nav() {
             <Link
               key={index}
               href={link.url}
-              className={`hover:text-heading px-4 py-2 font-semibold transition-all hover:underline ${currentPage == link.url ? "text-heading" : ""}`}
+              className={`hover:text-heading px-4 block py-2 font-semibold transition-all hover:underline ${currentPage == link.url ? "text-heading" : ""}`}
               onClick={() => setIsOpen(false)}
             >
               {link.name}
