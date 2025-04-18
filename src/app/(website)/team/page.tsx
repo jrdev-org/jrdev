@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const teamMembers = [
@@ -55,9 +56,11 @@ export default function TeamPage() {
 						<div className="rounded-lg border border-transparent bg-secondary p-6 transition-all group-hover:border-edge group-hover:shadow-edge group-hover:shadow-lg">
 							<div className="flex flex-col items-center space-y-4 text-center">
 								<div className="h-32 w-32 overflow-hidden rounded-full border-2 border-edge transition-all group-hover:border-text-main">
-									<img
+									<Image
 										src={member.image}
 										alt={member.name}
+										width={128}
+										height={128}
 										className="h-full w-full object-cover"
 									/>
 								</div>

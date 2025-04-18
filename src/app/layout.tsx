@@ -1,12 +1,14 @@
 import "@/styles/globals.css";
+import Nav from "@/app/components/Nav";
+import Footer from "@/app/components/Footer";
 
 import { type Metadata } from "next";
-import { Courier_Prime, Geist } from "next/font/google";
+import { Courier_Prime } from "next/font/google";
 
 export const metadata: Metadata = {
-	title: "jrdev - Developer Platform",
-	description: "jrdev - A developer platform created by EllyBax",
-	icons: [{ rel: "icon", url: "/favicon.ico" }],
+  title: "jrdev - Developer Platform",
+  description: "jrdev - A developer platform created by EllyBax",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 const courier = Courier_Prime({
@@ -20,7 +22,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${courier.variable}`}>
-      <body className="min-h-screen bg-primary text-text-main">{children}</body>
+      <body className="bg-primary text-text-main min-h-screen">
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
