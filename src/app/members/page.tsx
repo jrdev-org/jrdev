@@ -22,7 +22,7 @@ export default function MembersPage() {
   const [hoveredMember, setHoveredMember] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [members, setMembers] = useState<Member[]>([]);
-  const router = useRouter();
+//   const router = useRouter();
 
   useEffect(() => {
     const fetchMembers = async () => {
@@ -35,6 +35,7 @@ export default function MembersPage() {
         }
         const data: Member[] = await response.json();
         setMembers(data);
+        //@ts-ignore
       } catch (error: any) {
         console.error("Error fetching members:", error);
         // Handle the error appropriately (e.g., display an error message)
@@ -84,7 +85,7 @@ export default function MembersPage() {
               {filteredMembers.map((member, index) => (
                 <tr
                   key={member.id}
-                  onClick={() => router.push(`/members/${member.id}`)}
+                //   onClick={() => router.push(`/members/${member.id}`)}
                   className="cursor-pointer border-b border-edge transition-colors hover:bg-secondary"
                 >
                   <td className="p-4">{member.name}</td>
