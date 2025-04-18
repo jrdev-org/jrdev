@@ -23,19 +23,21 @@ export default function HomePage() {
   return (
     <>
         <h1 className="text-center text-shadow-2xs text-shadow-heading text-7xl font-bold my-4">jrdev</h1>
-        <p className="text-center my-4 text-2xl font-semibold">
-          &lt; Future Web, Future You /&gt;
+        <p className="text-center my-4">
+          <span className="text-2xl font-semibold block">
+            &lt; Future Web, Future You /&gt;
+            </span>
         </p>
         <div className="mb-8 flex items-center justify-center gap-6">
           <Link
             href="/login"
-            className="rounded-lg font-bold border text-heading px-4 py-2 transition-all border-edge hover:bg-secondary"
+            className="rounded-lg font-bold border text-heading px-4 py-2 transition-all border-edge hover:bg-edge"
           >
             [ Login ]
           </Link>
           <Link
             href="/register"
-            className="rounded-lg border border-edge bg-secondary px-4 py-2 transition-all hover:bg-edge"
+            className="rounded-lg border border-edge bg-secondary px-4 py-2 transition-all hover:text-heading"
           >
             [ Sign Up ]
           </Link>
