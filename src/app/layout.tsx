@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import Nav from "@/app/components/Nav";
 import Footer from "@/app/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 import { type Metadata } from "next";
 import { Courier_Prime } from "next/font/google";
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${courier.variable}`}>
       <body className="bg-primary text-text-main min-h-screen">
+        <Analytics mode="production"/>
         <Nav />
         {children}
         <Footer />
